@@ -28,7 +28,10 @@ const CreateBranches = function () {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:3001/api/branches/info/${id}`)
+        .get(`http://localhost:3001/api/branches/info/${id}`, {
+          withCredentials: true,
+          credentials: "include",
+        })
         .then((res) => {
           nombre.setValue(res.data.name);
           setCorreoBlocked(res.data.email);
@@ -69,6 +72,7 @@ const CreateBranches = function () {
     axios
       .post("http://localhost:3001/api/branches/", info, {
         withCredentials: true,
+        credentials: "include",
       })
       .then(() => {
         setPopupInfo({

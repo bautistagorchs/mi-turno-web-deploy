@@ -11,7 +11,8 @@ const ReservationConfirmed = function () {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/api/users/appointment/${reservationId}`
+          `http://localhost:3001/api/users/appointment/${reservationId}`,
+          { withCredentials: true, credentials: "include" }
         );
         setReservation(response.data);
       } catch (error) {

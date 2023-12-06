@@ -11,7 +11,10 @@ const ConfirmAccount = function () {
   const { token } = useParams();
   const confirmedRegister = (e) => {
     axios
-      .put(`http://localhost:3001/api/nodeMailer/confirmation/${token}`)
+      .put(`http://localhost:3001/api/nodeMailer/confirmation/${token}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((response) => {
         setConfirmed(true);
       })
@@ -26,7 +29,10 @@ const ConfirmAccount = function () {
     const email = e.target.email.value;
 
     axios
-      .post(`http://localhost:3001/api/nodeMailer/accountConfirmation/${email}`)
+      .post(
+        `http://localhost:3001/api/nodeMailer/accountConfirmation/${email}`,
+        { withCredentials: true, credentials: "include" }
+      )
       .then((resp) =>
         alert(
           "revise su casilla de correo para confirmar su registro de cuenta"

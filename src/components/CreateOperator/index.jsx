@@ -8,7 +8,6 @@ import Popup from "../../commons/Popup";
 import PasswordAndValidations from "../../commons/Form/PasswordAndValidations";
 
 const CreateOperator = function () {
-
   const navigate = useNavigate();
   const { dni } = useParams();
   const fullname = useInput("");
@@ -30,7 +29,10 @@ const CreateOperator = function () {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/users/admin/sucursalesList")
+      .get("http://localhost:3001/api/users/admin/sucursalesList", {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((res) => {
         sucursales.setValue(res.data);
       });
@@ -40,7 +42,10 @@ const CreateOperator = function () {
     if (dni) {
       setDisabled(true);
       axios
-        .get(`http://localhost:3001/api/users/operator/info/${dni}`)
+        .get(`http://localhost:3001/api/users/operator/info/${dni}`, {
+          withCredentials: true,
+          credentials: "include",
+        })
         .then((res) => {
           fullname.setValue(res.data.operator.fullname);
           setEmailBlocked(res.data.operator.email);
@@ -58,62 +63,62 @@ const CreateOperator = function () {
     }
   }, [sucursales.value]);
 
- //====================PASSWORD=========================
- const [password, setPassword] = useState("");
- const [confirmPswd, setConfirmPswd] = useState("");
- const [showPassword, setShowPassword] = useState(false);
- const [showConfirmPassword, setShowConfirmPassword] = useState(false);
- const [focus, setFocus] = useState(false);
- const [checklist, setChecklist] = useState({
-   uppercaseLetter: false,
-   lowercaseLetter: false,
-   oneNumber: false,
-   large: false,
-   validation: false,
- });
+  //====================PASSWORD=========================
+  const [password, setPassword] = useState("");
+  const [confirmPswd, setConfirmPswd] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [focus, setFocus] = useState(false);
+  const [checklist, setChecklist] = useState({
+    uppercaseLetter: false,
+    lowercaseLetter: false,
+    oneNumber: false,
+    large: false,
+    validation: false,
+  });
 
- const handleToggleFocus = () => {
-   setFocus(!focus);
- };
+  const handleToggleFocus = () => {
+    setFocus(!focus);
+  };
 
- const handleTogglePassword = () => {
-   setShowPassword(!showPassword);
- };
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
- const handleToggleConfirmPassword = () => {
-   setShowConfirmPassword(!showConfirmPassword);
- };
+  const handleToggleConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
 
- const handleInputConfirmPswd = (e) => {
-   const newValue = e.target.value;
-   setConfirmPswd(newValue);
- };
+  const handleInputConfirmPswd = (e) => {
+    const newValue = e.target.value;
+    setConfirmPswd(newValue);
+  };
 
- const handleInputPassword = (e) => {
-   const newValue = e.target.value;
-   setPassword(newValue);
-   //setData({ ...data, password: newValue });
-   setChecklist({
-     uppercaseLetter: /[A-ZÑ]/.test(newValue),
-     lowercaseLetter: /[a-zñ]/.test(newValue),
-     oneNumber: /\d/.test(newValue),
-     large: newValue.length >= 8,
-     validation:
-       /[A-ZÑ]/.test(newValue) &&
-       /[a-zñ]/.test(newValue) &&
-       /\d/.test(newValue) &&
-       newValue.length >= 8,
-   });
- };
- //====================================================
- 
+  const handleInputPassword = (e) => {
+    const newValue = e.target.value;
+    setPassword(newValue);
+    //setData({ ...data, password: newValue });
+    setChecklist({
+      uppercaseLetter: /[A-ZÑ]/.test(newValue),
+      lowercaseLetter: /[a-zñ]/.test(newValue),
+      oneNumber: /\d/.test(newValue),
+      large: newValue.length >= 8,
+      validation:
+        /[A-ZÑ]/.test(newValue) &&
+        /[a-zñ]/.test(newValue) &&
+        /\d/.test(newValue) &&
+        newValue.length >= 8,
+    });
+  };
+  //====================================================
+
   const logicPopUp = (tag, option, className) => {
     document.querySelector(tag).classList[option](className);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(parseInt(sucursal.value))
+    console.log(parseInt(sucursal.value));
     let data = {
       fullname: fullname.value,
       DNI: dni_.value,
@@ -122,16 +127,18 @@ const CreateOperator = function () {
       isOperator: true,
       isConfirmed: true,
     };
-    
+
     if (password != "" && confirmPswd == password)
       data = { ...data, password: password };
 
-    axios.post("http://localhost:3001/api/users/operator", data, {
+    axios
+      .post("http://localhost:3001/api/users/operator", data, {
         withCredentials: true,
+        credentials: "include",
       })
       .then(() => {
         setPopupInfo({
-          title: dni ?`Cambios guardados` :`Operador creado con exito`,
+          title: dni ? `Cambios guardados` : `Operador creado con exito`,
           text: `Gracias por confiar en nuestro servicio`,
           img: true,
           redirect: `/admin/operators`,
@@ -234,47 +241,51 @@ const CreateOperator = function () {
             </div>
           </div>
           {disabled ? (
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-            className="inputs-div-container"
-          >
-            <div className="single-input-container special-password">
-              <p className="p-form-client">Contraseña</p>
-              <input
-                disabled={true}
-                name="password"
-                readOnly
-                className={s.inputArea}
-                type="password"
-                defaultValue={"Default123"}
-                style={{width:"100%"}}
-              />
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+              className="inputs-div-container"
+            >
+              <div className="single-input-container special-password">
+                <p className="p-form-client">Contraseña</p>
+                <input
+                  disabled={true}
+                  name="password"
+                  readOnly
+                  className={s.inputArea}
+                  type="password"
+                  defaultValue={"Default123"}
+                  style={{ width: "100%" }}
+                />
+              </div>
+              <h4
+                className="h4-form-edit"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setDisabled(false);
+                }}
+              >
+                Editar contraseña
+              </h4>
             </div>
-            <h4 className="h4-form-edit" onClick={(e)=>{
-              e.preventDefault();
-              setDisabled(false);
-            }}>
-              Editar contraseña
-            </h4>
-          </div>
-        ) :(<PasswordAndValidations
-            value={password}
-            handleInputConfirmPswd={handleInputConfirmPswd}
-            handleInputPassword={handleInputPassword}
-            handleToggleFocus={handleToggleFocus}
-            handleTogglePassword={handleTogglePassword}
-            handleToggleConfirmPassword={handleToggleConfirmPassword}
-            confirmPswd={confirmPswd}
-            showPassword={showPassword}
-            showConfirmPassword={showConfirmPassword}
-            checklist={checklist}
-            focus={focus}
-            
-          />)}
+          ) : (
+            <PasswordAndValidations
+              value={password}
+              handleInputConfirmPswd={handleInputConfirmPswd}
+              handleInputPassword={handleInputPassword}
+              handleToggleFocus={handleToggleFocus}
+              handleTogglePassword={handleTogglePassword}
+              handleToggleConfirmPassword={handleToggleConfirmPassword}
+              confirmPswd={confirmPswd}
+              showPassword={showPassword}
+              showConfirmPassword={showConfirmPassword}
+              checklist={checklist}
+              focus={focus}
+            />
+          )}
           <button
             type="submit"
             className={s.btnSingIn}
@@ -290,4 +301,3 @@ const CreateOperator = function () {
 };
 
 export default CreateOperator;
-

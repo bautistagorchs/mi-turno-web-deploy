@@ -5,9 +5,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PasswordAndValidations from "../../commons/Form/PasswordAndValidations";
 import "../ClientProfileEdition/ClientProfileEdit.scss";
-import {deleteIcon} from "../../assets/icons"
+import { deleteIcon } from "../../assets/icons";
 import { logout } from "../../state/user";
-import {useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 export default function ClientProfileEdit() {
   const userRedux = useSelector((state) => state.user);
   const email = userRedux.email;
@@ -17,8 +17,8 @@ export default function ClientProfileEdit() {
   const [confirmPswd, setConfirmPswd] = useState("");
   const [focus, setFocus] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [checklist, setChecklist] = useState({
     uppercaseLetter: false,
     lowercaseLetter: false,
@@ -41,7 +41,10 @@ export default function ClientProfileEdit() {
   useEffect(() => {
     if (email) {
       axios
-        .get(`http://localhost:3001/api/users/edit/profile/${email}`)
+        .get(`http://localhost:3001/api/users/edit/profile/${email}`, {
+          withCredentials: true,
+          credentials: "include",
+        })
         .then((res) => {
           setUser({
             fullname: res.data.fullname,
@@ -122,9 +125,13 @@ export default function ClientProfileEdit() {
       }
     }
     axios
-      .put("http://localhost:3001/api/users/edit/profile", {
-        ...toPut,
-      })
+      .put(
+        "http://localhost:3001/api/users/edit/profile",
+        {
+          ...toPut,
+        },
+        { withCredentials: true, credentials: "include" }
+      )
       .then(() => {
         toast.success("TU PERFIL FUE ACTUALIZADO", {
           position: toast.POSITION.TOP_CENTER,
@@ -132,25 +139,33 @@ export default function ClientProfileEdit() {
       })
       .catch((err) => console.error("ERROR EN PEDIDO AXIOS", err));
   }
-   const handleDeleteUser =(e)=>{
-    axios.put("http://localhost:3001/api/users/delete",{email:email})
-    .then((resp)=>{
-      console.log("se elimino correctamente")
-      document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
-      dispatch(logout())
-      navigate("/")
-    })
-
-   }
+  const handleDeleteUser = (e) => {
+    axios
+      .put(
+        "http://localhost:3001/api/users/delete",
+        { email: email },
+        { withCredentials: true, credentials: "include" }
+      )
+      .then((resp) => {
+        console.log("se elimino correctamente");
+        document.cookie =
+          "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        dispatch(logout());
+        navigate("/");
+      });
+  };
   return (
     <>
       <div className="client-page">
         <div className="client-container">
           <div className="client-form">
             <div className="client-form-title">
-              <h1 className="h1-form-client">Mis datos </h1> <button onClick={handleDeleteUser} className="btn-deleteUser">{deleteIcon}</button>
+              <h1 className="h1-form-client">Mis datos </h1>{" "}
+              <button onClick={handleDeleteUser} className="btn-deleteUser">
+                {deleteIcon}
+              </button>
             </div>
-           
+
             <div className="inputs-div-container">
               <div className="single-input-container">
                 <p className="p-form-client">Nombre</p>

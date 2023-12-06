@@ -32,7 +32,10 @@ export const CancelReservation = () => {
   };
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/users/appointment/${reservationId}`)
+      .get(`http://localhost:3001/api/users/appointment/${reservationId}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((res) => {
         setReservation(res.data);
       })
@@ -60,7 +63,8 @@ export const CancelReservation = () => {
     } else {
       axios
         .delete(
-          `http://localhost:3001/api/users/removeAppointment/${reservationId}`
+          `http://localhost:3001/api/users/removeAppointment/${reservationId}`,
+          { withCredentials: true, credentials: "include" }
         )
         .then((res) => {
           setPopupInfo({
@@ -90,7 +94,8 @@ export const CancelReservation = () => {
                 branch: reservation.branch.name,
                 date: reservation.date.split("T")[0],
                 time: reservation.schedule.slice(0, 5),
-              }
+              },
+              { withCredentials: true, credentials: "include" }
             )
             .then((res) => "")
             .catch((error) => console.log(error));

@@ -5,10 +5,15 @@ import { useNavigate } from "react-router";
 import { login } from "../../state/user";
 import Popup from "../../commons/Popup";
 import PopupInput from "../../commons/PopupInput";
+import { useLocalStorage } from "../../state/useLocalStorage";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [cookieLocalStorage, setCookieLocalStorage] = useLocalStorage(
+    "token",
+    ""
+  );
   const [userInputValue, setUserInputValue] = useState();
   const [passwordInputValue, setPasswordInputValue] = useState();
   const [invalidInformation, setInvalidInformation] = useState();
@@ -30,19 +35,18 @@ const Login = () => {
           email: userInputValue,
           password: passwordInputValue,
         },
-        {
-          withCredentials: true,
-        }
+        { withCredentials: true, credentials: "include" }
       )
       .then((res) => {
-        dispatch(login(res.data));
-        res.data.isAdmin
+        dispatch(login(res.data.payload));
+        setCookieLocalStorage(res.data.token);
+        res.data.payload.isAdmin
           ? navigate("/admin/allBranches")
-          : res.data.isOperator
+          : res.data.payload.isOperator
           ? navigate("/operator/reservationsList")
-          : !res.data.isAdmin &&
-            !res.data.isOperator &&
-            res.data.email &&
+          : !res.data.payload.isAdmin &&
+            !res.data.payload.isOperator &&
+            res.data.payload.email &&
             navigate("/client/newReservation");
       })
       .catch((err) => {

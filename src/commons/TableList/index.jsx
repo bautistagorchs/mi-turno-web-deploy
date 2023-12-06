@@ -21,7 +21,10 @@ export const TableList = ({ datatype, data }) => {
   const handleOnClickDeleteOperator = (oid, e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:3001/api/users/admin/deleteOperator/${oid}`)
+      .put(`http://localhost:3001/api/users/admin/deleteOperator/${oid}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then(() => {
         alert("Se eliminó al operador");
         window.location.reload();
@@ -31,7 +34,10 @@ export const TableList = ({ datatype, data }) => {
   const handleOnClickDeleteBranch = (id, e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:3001/api/users/admin/deleteBranch/${id}`)
+      .put(`http://localhost:3001/api/users/admin/deleteBranch/${id}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then(() => {
         alert("Se eliminó la sucursal");
         window.location.reload();
@@ -73,17 +79,20 @@ export const TableList = ({ datatype, data }) => {
   const handleConfirmedAssistence = (id, e) => {
     const button = document.getElementById(`${id}`);
     axios
-      .put(`http://localhost:3001/api/appointments/attended/${id}`)
+      .put(`http://localhost:3001/api/appointments/attended/${id}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then(() => {
         alert("asistencia confirmada");
       })
       .catch(() => alert("no fue posible confirmar la asistencia"));
-    console.log("reservas traidas del back",objKeys)
+    console.log("reservas traidas del back", objKeys);
     console.log("evento y id =>", id, e);
     button.disabled = true;
-    button.innerText = "Confirmado ✓";   
+    button.innerText = "Confirmado ✓";
     button.onClick = null;
-    window.location.reload()
+    window.location.reload();
   };
   return (
     <>
@@ -250,25 +259,32 @@ export const TableList = ({ datatype, data }) => {
                         id={`${objIns[objKeys[1]]}`}
                         variant="contained"
                         style={
-                          objIns[objKeys[5]] === false ?
-                          {
-                          backgroundColor: "#F5F5F5",
-                          color: "#A442F1",
-                          textTransform: "none",
-                          padding: "0 !important",
-                        }:{
-                          backgroundColor: "#b93af8",
-                          color: "white",
-                          textTransform: "none",
-                          padding: "0 !important",
+                          objIns[objKeys[5]] === false
+                            ? {
+                                backgroundColor: "#F5F5F5",
+                                color: "#A442F1",
+                                textTransform: "none",
+                                padding: "0 !important",
+                              }
+                            : {
+                                backgroundColor: "#b93af8",
+                                color: "white",
+                                textTransform: "none",
+                                padding: "0 !important",
+                              }
                         }
-                       
-                      }
                         onClick={(event) =>
-                          objIns[objKeys[5]] === false? handleConfirmedAssistence(objIns[objKeys[1]], event) : ""
+                          objIns[objKeys[5]] === false
+                            ? handleConfirmedAssistence(
+                                objIns[objKeys[1]],
+                                event
+                              )
+                            : ""
                         }
                       >
-                       {objIns[objKeys[5]] === false? "Confirmar" : "Confirmado ✓" } 
+                        {objIns[objKeys[5]] === false
+                          ? "Confirmar"
+                          : "Confirmado ✓"}
                       </Button>
                     )}
 
