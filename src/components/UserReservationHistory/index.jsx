@@ -14,7 +14,10 @@ export const UserReservationHistory = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/users/appointmentList/${user.DNI}`)
+      .get(`http://localhost:3001/api/users/appointmentList/${user.DNI}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((res) => {
         setReservations(
           res.data.map((obj) => {
@@ -37,23 +40,21 @@ export const UserReservationHistory = () => {
   else if (reservations.length == 0)
     return (
       <div className={s.container}>
-    
-          <h1 style={{margin:"20px"}}>No hay reservas</h1>
-          <Button
-            onClick={(e) => {
-              navigate(`/client/newReservation`);
-            }}
-            variant="contained"
-            style={{
-              backgroundColor: "#F5F5F5",
-              color: "#A442F1",
-              textTransform: "none",
-              padding: "0 !important",
-            }}
-          >
-            Crear Reserva
-          </Button>
-      
+        <h1 style={{ margin: "20px" }}>No hay reservas</h1>
+        <Button
+          onClick={(e) => {
+            navigate(`/client/newReservation`);
+          }}
+          variant="contained"
+          style={{
+            backgroundColor: "#F5F5F5",
+            color: "#A442F1",
+            textTransform: "none",
+            padding: "0 !important",
+          }}
+        >
+          Crear Reserva
+        </Button>
       </div>
     );
   else

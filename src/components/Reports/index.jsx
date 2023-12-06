@@ -11,16 +11,13 @@ function Reports() {
   const [data, setData] = useState({});
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/users/admin/sucursalesList")
+      .get("http://localhost:3001/api/users/admin/sucursalesList", {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((res) => {
         sucursales.setValue(res.data);
       });
-    // axios
-    //   .get(`http://localhost:3001/api/users/operator/reservationsList`)
-    //   .then((res) => {
-    //     setReservationsList(res.data);
-    //     console.log(reservationsList);
-    //   });
   }, []);
 
   return (

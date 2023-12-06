@@ -20,9 +20,16 @@ function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const token = localStorage.getItem("token");
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/users/me", { withCredentials: true })
+      .get(`http://localhost:3001/api/users/me`, {
+        withCredentials: true,
+        credentials: "include",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => {
         if (res.data) {
           const userData = {

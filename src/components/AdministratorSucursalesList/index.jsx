@@ -12,8 +12,8 @@ export const AdministratorSucursalesList = () => {
   useEffect(() => {
     axios
       .get(`http://localhost:3001/api/users/admin/sucursalesList`, {
-        // mediante la ruta de sucursales tambien se trae la info de operadores
         withCredentials: true,
+        credentials: "include",
       })
       .then((res) => {
         setAllData(
@@ -43,7 +43,7 @@ export const AdministratorSucursalesList = () => {
   else if (allData.length == 0)
     return (
       <div className={s.container}>
-        <h1 style={{margin:"20px"}}>No hay sucursales</h1>
+        <h1 style={{ margin: "20px" }}>No hay sucursales</h1>
         <Button
           onClick={(e) => {
             navigate(`/admin/create/branch`);

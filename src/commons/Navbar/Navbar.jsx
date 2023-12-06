@@ -14,6 +14,7 @@ const Navbar = () => {
     axios
       .post(`http://localhost:3001/api/users/logout`, null, {
         withCredentials: true,
+        credentials: "include",
       })
       .then(() => {
         if (!user.email) {

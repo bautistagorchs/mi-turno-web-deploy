@@ -111,10 +111,12 @@ export default function Register() {
 
         .post("http://localhost:3001/api/users/register", data, {
           withCredentials: true,
+          credentials: "include",
         })
         .then((resp) => {
           axios.post(
-            `http://localhost:3001/api/nodeMailer/accountConfirmation/${resp.data.email}`
+            `http://localhost:3001/api/nodeMailer/accountConfirmation/${resp.data.email}`,
+            { withCredentials: true, credentials: "include" }
           );
         })
         .then(() => {

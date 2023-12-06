@@ -17,7 +17,10 @@ const OperatorProfile = function () {
   const user = useSelector((state) => state.user);
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/users/operator/info/${user.DNI}`)
+      .get(`http://localhost:3001/api/users/operator/info/${user.DNI}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((result) => {
         setBranchName(result.data.name);
       });
@@ -107,6 +110,7 @@ const OperatorProfile = function () {
     axios
       .put("http://localhost:3001/api/users/edit/profile", toPut, {
         withCredentials: true,
+        credentials: "include",
       })
       .then((resp) => {
         const payload = {

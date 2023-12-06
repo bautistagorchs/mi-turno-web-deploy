@@ -73,7 +73,7 @@ const RecoverPassword = () => {
       .put(
         `http://localhost:3001/api/nodeMailer/recoverPassword/${token}`,
         { newPassword },
-        { withCredentials: true }
+        { withCredentials: true, credentials: "include" }
       )
       .then(() => {
         setPopupInfo({

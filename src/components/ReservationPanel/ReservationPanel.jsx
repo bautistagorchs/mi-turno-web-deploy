@@ -65,7 +65,10 @@ export default function ReservationPanel() {
   React.useEffect(() => {
     if (reservationId) {
       axios
-        .get(`http://localhost:3001/api/users/appointment/${reservationId}`)
+        .get(`http://localhost:3001/api/users/appointment/${reservationId}`, {
+          withCredentials: true,
+          credentials: "include",
+        })
         .then((result) => {
           const data = {
             reservationId: reservationId,
@@ -86,7 +89,10 @@ export default function ReservationPanel() {
     }
 
     axios
-      .get(`http://localhost:3001/api/branches/allBranches`)
+      .get(`http://localhost:3001/api/branches/allBranches`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((result) => {
         setBranches(result.data);
       })
@@ -126,7 +132,10 @@ export default function ReservationPanel() {
     const daysWithAppointments = [];
     const allAppointmentsOnBranch = [];
     axios
-      .get(`http://localhost:3001/api/appointments/confirmed/${id}`)
+      .get(`http://localhost:3001/api/appointments/confirmed/${id}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((result) => {
         result.data.forEach((appointment) => {
           allAppointmentsOnBranch.push(appointment);
@@ -251,7 +260,11 @@ export default function ReservationPanel() {
       });
     }
     axios
-      .post("http://localhost:3001/api/users/newAppointment", { ...inputs })
+      .post(
+        "http://localhost:3001/api/users/newAppointment",
+        { ...inputs },
+        { withCredentials: true, credentials: "include" }
+      )
       .then((res) => {
         setReservationIdParams(res.data.reservationId);
         sendConfirmationEmail(
@@ -299,18 +312,28 @@ export default function ReservationPanel() {
       }
     }
     axios
-      .put("http://localhost:3001/api/users/newAppointment", {
-        ...toPut,
-      })
+      .put(
+        "http://localhost:3001/api/users/newAppointment",
+        {
+          ...toPut,
+        },
+        { withCredentials: true, credentials: "include" }
+      )
       .then((resp) => {
-        axios.post("http://localhost:3001/api/nodeMailer/appointment/EditConfirmation",{
-          email:user.email,
-          reservationId:toPut.reservationId,
-          date:resp.data[1][0].date.split("T")[0],
-          time:resp.data[1][0].schedule.split(':').slice(0, 2).join(':')
-        }).then((res)=>console.log("email enviado"))
-        .catch((error)=>console.log(error))
-        
+        axios
+          .post(
+            "http://localhost:3001/api/nodeMailer/appointment/EditConfirmation",
+            {
+              email: user.email,
+              reservationId: toPut.reservationId,
+              date: resp.data[1][0].date.split("T")[0],
+              time: resp.data[1][0].schedule.split(":").slice(0, 2).join(":"),
+            },
+            { withCredentials: true, credentials: "include" }
+          )
+          .then((res) => console.log("email enviado"))
+          .catch((error) => console.log(error));
+
         setPopupInfo({
           title: `Turno modificado con exito`,
           text: `Gracias por confiar en nuestro servicio`,
@@ -360,9 +383,7 @@ export default function ReservationPanel() {
       .post(
         "http://localhost:3001/api/nodeMailer/appointment/confirmation",
         { email, branch, date, time },
-        {
-          withCredentials: true,
-        }
+        { withCredentials: true, credentials: "include" }
       )
       .then(() => {})
       .catch((err) => console.error(err));
