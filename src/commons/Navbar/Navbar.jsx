@@ -12,7 +12,7 @@ const Navbar = () => {
   const handleButtonRigth = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:3001/api/users/logout`, null, {
+      .post(`https://mi-turno-web.onrender.com/api/users/logout`, null, {
         withCredentials: true,
         credentials: "include",
       })

@@ -28,7 +28,7 @@ const CreateBranches = function () {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:3001/api/branches/info/${id}`, {
+        .get(`https://mi-turno-web.onrender.com/api/branches/info/${id}`, {
           withCredentials: true,
           credentials: "include",
         })
@@ -70,7 +70,7 @@ const CreateBranches = function () {
       capacity: maxCap.value,
     };
     axios
-      .post("http://localhost:3001/api/branches/", info, {
+      .post("https://mi-turno-web.onrender.com/api/branches/", info, {
         withCredentials: true,
         credentials: "include",
       })

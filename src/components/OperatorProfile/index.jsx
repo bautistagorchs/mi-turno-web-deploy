@@ -17,10 +17,13 @@ const OperatorProfile = function () {
   const user = useSelector((state) => state.user);
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/users/operator/info/${user.DNI}`, {
-        withCredentials: true,
-        credentials: "include",
-      })
+      .get(
+        `https://mi-turno-web.onrender.com/api/users/operator/info/${user.DNI}`,
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((result) => {
         setBranchName(result.data.name);
       });
@@ -108,7 +111,7 @@ const OperatorProfile = function () {
       }
     }
     axios
-      .put("http://localhost:3001/api/users/edit/profile", toPut, {
+      .put("https://mi-turno-web.onrender.com/api/users/edit/profile", toPut, {
         withCredentials: true,
         credentials: "include",
       })

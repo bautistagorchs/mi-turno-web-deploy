@@ -29,7 +29,7 @@ const CreateOperator = function () {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/users/admin/sucursalesList", {
+      .get("https://mi-turno-web.onrender.com/api/users/admin/sucursalesList", {
         withCredentials: true,
         credentials: "include",
       })
@@ -42,10 +42,13 @@ const CreateOperator = function () {
     if (dni) {
       setDisabled(true);
       axios
-        .get(`http://localhost:3001/api/users/operator/info/${dni}`, {
-          withCredentials: true,
-          credentials: "include",
-        })
+        .get(
+          `https://mi-turno-web.onrender.com/api/users/operator/info/${dni}`,
+          {
+            withCredentials: true,
+            credentials: "include",
+          }
+        )
         .then((res) => {
           fullname.setValue(res.data.operator.fullname);
           setEmailBlocked(res.data.operator.email);
@@ -132,7 +135,7 @@ const CreateOperator = function () {
       data = { ...data, password: password };
 
     axios
-      .post("http://localhost:3001/api/users/operator", data, {
+      .post("https://mi-turno-web.onrender.com/api/users/operator", data, {
         withCredentials: true,
         credentials: "include",
       })

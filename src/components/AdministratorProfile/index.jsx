@@ -111,7 +111,7 @@ const AdministratorProfile = function () {
     }
 
     axios
-      .put("http://localhost:3001/api/users/edit/profile", toPut, {
+      .put("https://mi-turno-web.onrender.com/api/users/edit/profile", toPut, {
         withCredentials: true,
         credentials: "include",
       })

@@ -11,10 +11,13 @@ const ConfirmAccount = function () {
   const { token } = useParams();
   const confirmedRegister = (e) => {
     axios
-      .put(`http://localhost:3001/api/nodeMailer/confirmation/${token}`, {
-        withCredentials: true,
-        credentials: "include",
-      })
+      .put(
+        `https://mi-turno-web.onrender.com/api/nodeMailer/confirmation/${token}`,
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((response) => {
         setConfirmed(true);
       })
@@ -30,7 +33,7 @@ const ConfirmAccount = function () {
 
     axios
       .post(
-        `http://localhost:3001/api/nodeMailer/accountConfirmation/${email}`,
+        `https://mi-turno-web.onrender.com/api/nodeMailer/accountConfirmation/${email}`,
         { withCredentials: true, credentials: "include" }
       )
       .then((resp) =>

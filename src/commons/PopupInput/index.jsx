@@ -10,7 +10,7 @@ const PopupInput = () => {
     setStepper(2);
     axios
       .post(
-        `http://localhost:3001/api/nodeMailer/recoverEmailPassword/${inputValue}`,
+        `https://mi-turno-web.onrender.com/api/nodeMailer/recoverEmailPassword/${inputValue}`,
         { withCredentials: true, credentials: "include" }
       )
       .then((resp) => {

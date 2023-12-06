@@ -11,7 +11,7 @@ export const AdministratorOperatorsList = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/users/admin/operatorsList`, {
+      .get(`https://mi-turno-web.onrender.com/api/users/admin/operatorsList`, {
         withCredentials: true,
         credentials: "include",
       })

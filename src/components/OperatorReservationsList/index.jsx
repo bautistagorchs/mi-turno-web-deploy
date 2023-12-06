@@ -11,7 +11,7 @@ export const OperatorReservationsList = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3001/api/users/operator/reservationsList/${user.DNI}`,
+        `https://mi-turno-web.onrender.com/api/users/operator/reservationsList/${user.DNI}`,
         { withCredentials: true, credentials: "include" }
       )
       .then((res) => {

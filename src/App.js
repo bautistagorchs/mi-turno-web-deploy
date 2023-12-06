@@ -23,7 +23,7 @@ function App() {
   const token = localStorage.getItem("token");
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/users/me`, {
+      .get(`https://mi-turno-web.onrender.com/api/users/me`, {
         withCredentials: true,
         credentials: "include",
         headers: {
