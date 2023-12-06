@@ -65,10 +65,13 @@ export default function ReservationPanel() {
   React.useEffect(() => {
     if (reservationId) {
       axios
-        .get(`http://localhost:3001/api/users/appointment/${reservationId}`, {
-          withCredentials: true,
-          credentials: "include",
-        })
+        .get(
+          `https://mi-turno-web.onrender.com/api/users/appointment/${reservationId}`,
+          {
+            withCredentials: true,
+            credentials: "include",
+          }
+        )
         .then((result) => {
           const data = {
             reservationId: reservationId,
@@ -89,7 +92,7 @@ export default function ReservationPanel() {
     }
 
     axios
-      .get(`http://localhost:3001/api/branches/allBranches`, {
+      .get(`https://mi-turno-web.onrender.com/api/branches/allBranches`, {
         withCredentials: true,
         credentials: "include",
       })
@@ -132,10 +135,13 @@ export default function ReservationPanel() {
     const daysWithAppointments = [];
     const allAppointmentsOnBranch = [];
     axios
-      .get(`http://localhost:3001/api/appointments/confirmed/${id}`, {
-        withCredentials: true,
-        credentials: "include",
-      })
+      .get(
+        `https://mi-turno-web.onrender.com/api/appointments/confirmed/${id}`,
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((result) => {
         result.data.forEach((appointment) => {
           allAppointmentsOnBranch.push(appointment);
@@ -261,7 +267,7 @@ export default function ReservationPanel() {
     }
     axios
       .post(
-        "http://localhost:3001/api/users/newAppointment",
+        "https://mi-turno-web.onrender.com/api/users/newAppointment",
         { ...inputs },
         { withCredentials: true, credentials: "include" }
       )
@@ -313,7 +319,7 @@ export default function ReservationPanel() {
     }
     axios
       .put(
-        "http://localhost:3001/api/users/newAppointment",
+        "https://mi-turno-web.onrender.com/api/users/newAppointment",
         {
           ...toPut,
         },
@@ -322,7 +328,7 @@ export default function ReservationPanel() {
       .then((resp) => {
         axios
           .post(
-            "http://localhost:3001/api/nodeMailer/appointment/EditConfirmation",
+            "https://mi-turno-web.onrender.com/api/nodeMailer/appointment/EditConfirmation",
             {
               email: user.email,
               reservationId: toPut.reservationId,
@@ -381,7 +387,7 @@ export default function ReservationPanel() {
     time = time.slice(0, 5);
     axios
       .post(
-        "http://localhost:3001/api/nodeMailer/appointment/confirmation",
+        "https://mi-turno-web.onrender.com/api/nodeMailer/appointment/confirmation",
         { email, branch, date, time },
         { withCredentials: true, credentials: "include" }
       )

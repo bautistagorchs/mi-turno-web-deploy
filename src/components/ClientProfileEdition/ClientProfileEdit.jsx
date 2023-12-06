@@ -41,10 +41,13 @@ export default function ClientProfileEdit() {
   useEffect(() => {
     if (email) {
       axios
-        .get(`http://localhost:3001/api/users/edit/profile/${email}`, {
-          withCredentials: true,
-          credentials: "include",
-        })
+        .get(
+          `https://mi-turno-web.onrender.com/api/users/edit/profile/${email}`,
+          {
+            withCredentials: true,
+            credentials: "include",
+          }
+        )
         .then((res) => {
           setUser({
             fullname: res.data.fullname,
@@ -126,7 +129,7 @@ export default function ClientProfileEdit() {
     }
     axios
       .put(
-        "http://localhost:3001/api/users/edit/profile",
+        "https://mi-turno-web.onrender.com/api/users/edit/profile",
         {
           ...toPut,
         },
@@ -142,7 +145,7 @@ export default function ClientProfileEdit() {
   const handleDeleteUser = (e) => {
     axios
       .put(
-        "http://localhost:3001/api/users/delete",
+        "https://mi-turno-web.onrender.com/api/users/delete",
         { email: email },
         { withCredentials: true, credentials: "include" }
       )

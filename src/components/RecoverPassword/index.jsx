@@ -71,7 +71,7 @@ const RecoverPassword = () => {
     } else setInvalidInformation("");
     axios
       .put(
-        `http://localhost:3001/api/nodeMailer/recoverPassword/${token}`,
+        `https://mi-turno-web.onrender.com/api/nodeMailer/recoverPassword/${token}`,
         { newPassword },
         { withCredentials: true, credentials: "include" }
       )

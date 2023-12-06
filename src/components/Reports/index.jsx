@@ -11,7 +11,7 @@ function Reports() {
   const [data, setData] = useState({});
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/users/admin/sucursalesList", {
+      .get("https://mi-turno-web.onrender.com/api/users/admin/sucursalesList", {
         withCredentials: true,
         credentials: "include",
       })

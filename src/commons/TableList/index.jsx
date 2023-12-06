@@ -21,10 +21,13 @@ export const TableList = ({ datatype, data }) => {
   const handleOnClickDeleteOperator = (oid, e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:3001/api/users/admin/deleteOperator/${oid}`, {
-        withCredentials: true,
-        credentials: "include",
-      })
+      .put(
+        `https://mi-turno-web.onrender.com/api/users/admin/deleteOperator/${oid}`,
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then(() => {
         alert("Se eliminó al operador");
         window.location.reload();
@@ -34,10 +37,13 @@ export const TableList = ({ datatype, data }) => {
   const handleOnClickDeleteBranch = (id, e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:3001/api/users/admin/deleteBranch/${id}`, {
-        withCredentials: true,
-        credentials: "include",
-      })
+      .put(
+        `https://mi-turno-web.onrender.com/api/users/admin/deleteBranch/${id}`,
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then(() => {
         alert("Se eliminó la sucursal");
         window.location.reload();
@@ -79,10 +85,13 @@ export const TableList = ({ datatype, data }) => {
   const handleConfirmedAssistence = (id, e) => {
     const button = document.getElementById(`${id}`);
     axios
-      .put(`http://localhost:3001/api/appointments/attended/${id}`, {
-        withCredentials: true,
-        credentials: "include",
-      })
+      .put(
+        `https://mi-turno-web.onrender.com/api/appointments/attended/${id}`,
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then(() => {
         alert("asistencia confirmada");
       })

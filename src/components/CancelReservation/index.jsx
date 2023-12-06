@@ -32,10 +32,13 @@ export const CancelReservation = () => {
   };
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/users/appointment/${reservationId}`, {
-        withCredentials: true,
-        credentials: "include",
-      })
+      .get(
+        `https://mi-turno-web.onrender.com/api/users/appointment/${reservationId}`,
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((res) => {
         setReservation(res.data);
       })
@@ -63,7 +66,7 @@ export const CancelReservation = () => {
     } else {
       axios
         .delete(
-          `http://localhost:3001/api/users/removeAppointment/${reservationId}`,
+          `https://mi-turno-web.onrender.com/api/users/removeAppointment/${reservationId}`,
           { withCredentials: true, credentials: "include" }
         )
         .then((res) => {
@@ -88,7 +91,7 @@ export const CancelReservation = () => {
 
           axios
             .post(
-              "http://localhost:3001/api/nodeMailer/appointment/cancellation",
+              "https://mi-turno-web.onrender.com/api/nodeMailer/appointment/cancellation",
               {
                 email: userRedux.email,
                 branch: reservation.branch.name,

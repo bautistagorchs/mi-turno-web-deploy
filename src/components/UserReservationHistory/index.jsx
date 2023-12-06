@@ -14,10 +14,13 @@ export const UserReservationHistory = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/users/appointmentList/${user.DNI}`, {
-        withCredentials: true,
-        credentials: "include",
-      })
+      .get(
+        `https://mi-turno-web.onrender.com/api/users/appointmentList/${user.DNI}`,
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((res) => {
         setReservations(
           res.data.map((obj) => {
