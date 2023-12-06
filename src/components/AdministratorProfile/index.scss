@@ -1,0 +1,67 @@
+.contentPerfilAdm {
+  display: flex;
+  width: 878px;
+  //padding: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0px auto;
+  margin-top: 4%;
+  margin-bottom: 96px;
+  border-radius: 12px;
+  background: var(--White, #fff);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
+  color: var(--Black, #000);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+.contentPerfilAdm > div {
+  margin: 0px auto;
+}
+.itemPerfilAdm {
+  display: flex;
+  flex-direction: column;
+}
+.itemPerfilAdm > input {
+  width: 798px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--Grey-3, #e1e1e1);
+  background: var(--White, #fff);
+}
+.editPassword {
+  color: var(--Principal, #a442f1);
+  font-variant-numeric: slashed-zero;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  margin-top: 5px;
+}
+.perfilBtn {
+  display: flex;
+  width: 798px;
+  height: 48px;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--Principal, #a442f1);
+  color: var(--White, #fff);
+  text-align: center;
+  font-variant-numeric: slashed-zero;
+  flex: 1 0 0;
+  /* Semibold · 16 · 20 */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 125% */
+  border-style: none;
+}

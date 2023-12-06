@@ -1,0 +1,123 @@
+.div-popupI-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -60vh;
+  transition: all 1.2s ease;
+  scale: 0;
+}
+.blur-page {
+  filter: blur(0.8px);
+}
+.inactive-pi {
+  z-index: -2;
+}
+.active-pi {
+  z-index: 2;
+  scale: 1;
+}
+.div-popupI-content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36vh;
+  width: 60vh;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 6px 20px -2px #8d868650;
+}
+.div-popupI-content {
+  display: flex;
+  flex-direction: column;
+  padding: 14%;
+  gap: 1vh;
+
+  h1 {
+    margin-bottom: -10px;
+  }
+  p {
+    text-align: center;
+  }
+  input {
+    all: unset;
+    height: 4vh;
+    width: 34vh;
+    padding-left: 10px;
+    border-radius: 8px;
+    border: 0.1px solid rgba(175, 148, 148, 0.616);
+    transition: all 0.5s ease;
+    &:hover {
+      border: 0.8px solid rgb(104, 88, 88);
+    }
+    &:focus {
+      border: 1.2px solid #a442f1;
+    }
+  }
+}
+
+.button-send-email {
+  all: unset;
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px 141px;
+  color: white;
+  font-weight: 600;
+  margin-top: 10px;
+  letter-spacing: 1px;
+  background: var(--Principal, #a442f1);
+  border: 0.1px solid rgb(175, 148, 148);
+  transition: all 0.6s ease;
+  &:hover {
+    transform: scale(1.1);
+    background: var(--Principal, #7d2abd);
+  }
+}
+
+.title-loader {
+  margin-top: 0px;
+}
+@keyframes bounce {
+  20%,
+  50%,
+  80%,
+  to {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  90% {
+    transform: scale(1.01);
+  }
+}
+#show {
+  display: flex;
+  align-items: center;
+  animation: bounce 0.9s linear;
+}
+#hide {
+  display: none;
+}
+.loader {
+  height: 14px;
+  width: 130px;
+  border-radius: 20px;
+  --c: no-repeat linear-gradient(#9700ee 0 0);
+  background: var(--c), var(--c), #d7b8fc;
+  background-size: 60% 100%;
+  animation: l16 3s infinite;
+}
+@keyframes l16 {
+  0% {
+    background-position: -150% 0, -150% 0;
+  }
+  66% {
+    background-position: 250% 0, -150% 0;
+  }
+  100% {
+    background-position: 250% 0, 250% 0;
+  }
+}

@@ -1,0 +1,156 @@
+.parent {
+  display: flex;
+  justify-content: center;
+  margin-top: 6%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background: var(--White, #fff);
+}
+
+.f {
+  display: flex;
+  width: 878px;
+  padding: 40px 40px 32px 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  border-radius: 12px;
+  background: var(--White, #fff);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
+  justify-content: center;
+}
+
+.textInputs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+  color: var(--Black, #000);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  flex: 1 0 0;
+}
+
+.inputArea {
+  border-radius: 8px;
+  border: 1px solid var(--Grey-3, #e1e1e1);
+  display: flex;
+  padding: 12px 8px 12px 12px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  width: 420px;
+  outline: none;
+}
+
+.inputArea:hover {
+  flex: 1 0 0;
+  border: 1px solid var(--Grey-5, #afafaf);
+  background: var(--White, #fff);
+}
+
+.inputArea:focus {
+  outline: none;
+  border: 1.9px solid #8A26A6;
+}
+
+.inputMail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  align-self: stretch;
+  label {
+    width: 100%;
+  }
+  input {
+    outline: none;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--Grey-3, #e1e1e1);
+    display: flex;
+    padding: 12px 8px 12px 12px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+  }
+  input:hover {
+    flex: 1 0 0;
+    border: 1px solid var(--Grey-5, #afafaf);
+    background: var(--White, #fff);
+  }
+  input:focus {
+    outline: none;
+    border: 1.9px solid #8A26A6;
+  }
+}
+
+.rowForm {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.inputPassword {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.btnSingIn {
+  height: 44px;
+  color: #fff;
+  font-size: 16px;
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: rgba(164, 66, 241, 0.1);
+  border: none;
+  border-radius: 8px;
+  background: var(--Principal, #a442f1);
+  transition: all 0.7s ease;
+}
+
+.btnSingIn:hover {
+  background: var(--Principal, #8631c7);
+  transform: scale(1.05) translateY(-8px);
+}
+
+.btnSingIn:active {
+  background: var(--Principal, #a442f1);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.24) inset;
+}
+
+.focus {
+  border-radius: 8px;
+  display: flex;
+  padding: 12px 8px 12px 12px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  width: 420px;
+  outline: none;
+  border: 1px solid var(--Principal, #a442f1);
+}
+
+.err {
+  border-radius: 8px;
+  display: flex;
+  padding: 12px 8px 12px 12px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  width: 420px;
+  outline: none;
+  border: 1px solid var(--Error, #e53939);
+}
+
+// ----------------------No los uso----------------------

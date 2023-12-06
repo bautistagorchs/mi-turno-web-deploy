@@ -1,0 +1,128 @@
+.client-page {
+  margin-top: 1vh;
+  margin-bottom: 8vh;
+  display: flex;
+  justify-content: center;
+  background: var(--White, #fff);
+  align-items: center;
+}
+.client-container {
+  border-radius: 12px;
+  width: 45%;
+  height: 65%;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.12);
+  margin-top: 7vh;
+}
+.client-form {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 32px;
+}
+.h1-form-client {
+  color: var(--Black, #000);
+  text-align: start;
+  font-variant-numeric: slashed-zero;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0.4px;
+}
+.p-form-client {
+  margin-bottom: 6px;
+}
+.inputOperator {
+  width: 100%;
+  border: 0.8px solid rgba(128, 128, 128, 0.541);
+  border-radius: 5px;
+  height: 2.5rem;
+  font-size: 1rem;
+  color: rgb(48, 47, 47);
+  transition: all 0.4s ease;
+}
+.inputOperator:focus {
+  outline: none;
+  border: 1.9px solid #8a26a6;
+}
+.inputOperator:hover {
+  border: 1px solid rgba(100, 100, 100, 0.774);
+}
+.inputOperator:hover:focus {
+  outline: none;
+  border: 1.9px solid #8a26a6;
+}
+
+.h4-form-edit {
+  color: var(--Principal, #a442f1);
+  height: fit-content;
+  padding: 13px 35px;
+  margin-top: 5%;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
+  background-color: #dabcf15c;
+  transition: all 0.7s ease;
+  &:hover {
+    background-color: rgb(218 188 241 / 71%);
+    transform: translateX(-8px) scale(1.02);
+  }
+}
+
+.login-button {
+  margin-top: 1rem;
+  height: 2.8rem;
+  border-radius: 8px;
+  background: var(--Principal, #a442f1);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.7px;
+  border-style: none;
+  transition: all 0.5s ease;
+}
+.login-button:hover,
+.go-to-register-button:hover {
+  transform: scale(1.05);
+  // background: var(--Principal, #8c29d8);
+}
+.login-form-line {
+  margin-top: 1.5rem;
+  height: 0;
+  border: 0.1px solid rgba(189, 185, 185, 0.541);
+}
+.inputPassword {
+  width: 100%;
+  border: 0.8px solid rgba(128, 128, 128, 0.541);
+  border-radius: 5px;
+  height: 2.5rem;
+  font-size: 1rem;
+  color: rgb(48, 47, 47);
+  transition: all 0.4s ease;
+}
+.inputs-div-container-password {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+.restrictions-container {
+  margin: 3% 0;
+}
+.special-password {
+  width: 70%;
+  margin-bottom: 3%;
+}
+.client-form-title{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+.btn-deleteUser{
+ border-style:none;
+ background-color: transparent;
+}
+.btn-deleteUser:focus{
+ border: 1px solid #a442f1;
+ border-radius: 20%;
+}

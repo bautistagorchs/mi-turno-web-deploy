@@ -1,0 +1,313 @@
+.contentMessaje {
+  display: flex;
+  margin: 4% 0px 3.5% 0px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+}
+.contentMessaje > i {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.contentMessaje > h1 {
+  margin: 0px;
+}
+.contentMessaje > p {
+  color: var(--Grey-8, #505050);
+  text-align: center;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  width: 40%;
+}
+h1 {
+  color: var(--Principal, #a442f1);
+  text-align: center;
+  font-variant-numeric: slashed-zero;
+  font-family: Roboto;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.messaje {
+  color: var(--Grey-8, #505050);
+  text-align: center;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+.impresion {
+  border-radius: 8px;
+  background: var(--Principal, #a442f1);
+  color: var(--White, #fff);
+  text-align: center;
+  font-variant-numeric: slashed-zero;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+.contentReservation {
+  display: flex;
+  // width: 1176px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3vh;
+  margin: 0% 7%;
+  border-top: 2px sold grey;
+}
+.contentReservation > section {
+  margin-top: 32px;
+}
+.contentPedido {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  gap: 12px;
+  height: 96px;
+  justify-content: space-between;
+}
+.itemPedido {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.itemPedido > p {
+  margin-top: 0px;
+  color: var(--Grey-8, #505050);
+  font-variant-numeric: ordinal;
+  font-feature-settings: "liga" off;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+}
+.itemPedidoButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 14%;
+}
+.editReservationBtn {
+  display: flex;
+  // width: 183px;
+  height: 44px;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: rgba(164, 66, 241, 0.1);
+  color: var(--Principal, #a442f1);
+  font-variant-numeric: slashed-zero;
+  border: none;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  transition: all 0.4s;
+  &:hover {
+    background: rgba(165, 66, 241, 0.24);
+    transform: scale(1.05);
+  }
+}
+
+.cancelReservationBtn {
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+  // width: 183px;
+  height: 44px;
+  color: var(--Error, #e53939);
+  font-variant-numeric: slashed-zero;
+  border-radius: 8px;
+  border: none;
+  background: var(--Grey-1, #f5f5f5);
+  font-family: Roboto;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  transition: all 0.4s;
+  &:hover {
+    background: rgba(165, 66, 241, 0.24);
+    transform: scale(1.05);
+  }
+}
+.contentInfo {
+  display: flex;
+  gap: 48px;
+  align-self: flex-start;
+  width: 48%;
+}
+.contentInfo > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+.item2 {
+  margin: 0 48px;
+}
+.item1 > h2 {
+  color: var(--Black, #000);
+  font-variant-numeric: slashed-zero;
+
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+.item2 > h2 {
+  color: var(--Black, #000);
+  font-variant-numeric: slashed-zero;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.item1 > p {
+  color: var(--Grey-8, #505050);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0px;
+}
+
+.item2 > p {
+  color: var(--Grey-8, #505050);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0px;
+}
+.itemPedido {
+  align-self: stretch;
+}
+.itemPedido > div > p {
+  color: var(--Grey-8, #505050);
+  font-variant-numeric: ordinal;
+  font-feature-settings: "liga" off;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+.subitemPedido {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 16px;
+  align-self: stretch;
+  margin-bottom: 0px;
+}
+.subitemPedido > h2 {
+  color: var(--Black, #000);
+  font-variant-numeric: slashed-zero;
+  font-family: Roboto;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
+.subitemPedido > .numeroR {
+  color: var(--Principal, #a442f1);
+  font-variant-numeric: slashed-zero;
+  font-family: Roboto;
+  font-size: 26px;
+  align-content: center;
+  margin: 0px;
+  margin-left: 5px;
+}
+.itemPedido > div > p {
+  color: var(--Grey-8, #505050);
+  font-variant-numeric: ordinal;
+  font-feature-settings: "liga" off;
+  height: 20px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  margin-top: 12px;
+}
+.impresion {
+  display: flex;
+  width: 382px;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  background: var(--Principal, #a442f1);
+  border: none;
+  transition: transform 0.8s ease, box-shadow 0.4s ease;
+}
+
+.impresion:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 3px 19px 1px #8631c7;
+}
+@media print {
+  #dont-print-me,
+  .navbar,
+  .div-promotion-message {
+    display: none;
+  }
+  .contentMessaje {
+    margin-top: 30%;
+    .messaje {
+      width: 80%;
+    }
+  }
+  .contentReservation {
+    gap: 0;
+    .contentPedido {
+      justify-content: center;
+      margin-top: 30%;
+      p {
+        text-align: center;
+      }
+    }
+  }
+  .contentInfo {
+    display: flex;
+    align-self: center;
+    align-content: center;
+    width: 85%;
+    gap: 0;
+    .item2 {
+      margin: 0;
+      flex: none;
+    }
+  }
+}
+@page {
+  size: auto;
+  margin: 0mm;
+}

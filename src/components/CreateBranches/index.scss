@@ -1,0 +1,108 @@
+.bodyContent {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  position: fixed;
+}
+.contentCreateBranches {
+  display: flex;
+  width: 878px;
+  padding: 40px 40px 32px 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0px auto;
+  margin-top: 6%;
+  margin-bottom: 120px;
+  border-radius: 12px;
+  background: var(--White, #fff);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
+  color: var(--Black, #000);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+.contentCreateBranches > div {
+  margin: 0px auto;
+}
+.contentCreateBranches > .bloqueUno {
+  display: flex;
+  flex-direction: column;
+}
+.contentCreateBranches > div > input {
+  width: 798px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--Grey-3, #e1e1e1);
+  background: var(--White, #fff);
+}
+.fila {
+  display: flex;
+  flex-direction: row;
+}
+.itemFila {
+  display: flex;
+  flex-direction: column;
+  color: var(--Black, #000);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+.itemFila > input {
+  width: 387px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--Grey-3, #e1e1e1);
+  background: var(--White, #fff);
+}
+
+.horario {
+  display: flex;
+  flex-direction: row;
+}
+.itemHorario {
+  display: flex;
+  flex-direction: column;
+  width: 395px;
+  height: 40px;
+  margin-bottom: 15px;
+  color: var(--Black, #000);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.select-style {
+  width: 395px;
+  height: 42px;
+}
+
+.itemcierre {
+  margin-left: 16px;
+}
+
+.sumitBtn {
+  width: 807px;
+  padding: 12px 24px;
+  margin-top: 3%;
+  font-weight: 600;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--White, #fff);
+  background: var(--Principal, #a442f1);
+  border-style: none;
+  border-radius: 8px;
+  transition: all 0.7s ease;
+
+  &:hover {
+    background: var(--Principal, #8631c7);
+    transform: scale(1.05) translateY(-8px);
+  }
+}

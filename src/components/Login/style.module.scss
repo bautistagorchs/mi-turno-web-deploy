@@ -1,0 +1,111 @@
+.login-page {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  background: var(--White, #fff);
+  align-items: center;
+  position: unset;
+}
+.login-container {
+  border-radius: 12px;
+  width: 35%;
+  height: 65%;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.12);
+  margin-top: 7vh;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 32px;
+}
+.h1-form-login {
+  color: var(--Black, #000);
+  text-align: center;
+  font-variant-numeric: slashed-zero;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0.4px;
+}
+.p-form-login {
+  margin-bottom: 6px;
+}
+.inputLogin {
+  border: 0.8px solid rgba(128, 128, 128, 0.541);
+  border-radius: 5px;
+  height: 2.5rem;
+  font-size: 1rem;
+  color: rgb(48, 47, 47);
+  transition: all 0.4s ease;
+}
+.inputLogin:focus {
+  outline: none;
+  border: 1.9px solid #8a26a6;
+}
+.inputLogin:hover {
+  // transform: scale(1.01);
+  border: 1px solid rgba(100, 100, 100, 0.774);
+}
+.inputLogin:hover:focus {
+  outline: none;
+  border: 1.9px solid #8a26a6;
+}
+
+.h4-form-login {
+  margin-top: 24px;
+  margin-bottom: 0px;
+  color: var(--Principal, #a442f1);
+  font-variant-numeric: slashed-zero;
+  font-size: 16px;
+  font-style: normal;
+  letter-spacing: 0;
+  font-weight: 600;
+  transition: all 0.7s ease;
+}
+.h4-form-login:hover {
+  transform: scale(1.03);
+}
+.login-button {
+  margin-top: 1rem;
+  height: 2.8rem;
+  border-radius: 8px;
+  background: var(--Principal, #a442f1);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.7px;
+  border-style: none;
+  transition: all 0.5s ease;
+}
+.login-button:hover {
+  transform: scale(1.05);
+  background: var(--Principal, #8631c7);
+}
+.go-to-register-button:hover {
+  transform: scale(1.05);
+}
+.login-form-line {
+  margin-top: 1.5rem;
+  height: 0;
+  border: 0.1px solid rgba(189, 185, 185, 0.541);
+}
+.go-to-register-button {
+  margin-top: 1rem;
+  height: 2.8rem;
+  border-radius: 8px;
+  color: var(--Principal, #a442f1);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.7px;
+  border-style: none;
+  transition: all 0.5s ease;
+}
+.p-validation-error-login {
+  margin-top: 4%;
+  margin-bottom: 0px;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: rgb(255, 52, 238);
+  text-align: center;
+}

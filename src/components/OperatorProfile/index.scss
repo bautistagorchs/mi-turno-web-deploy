@@ -1,0 +1,104 @@
+.contentOprPerfil{
+  display: flex;
+  width: 878px;
+  padding: 40px 40px 32px 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0px auto;
+  margin-top:136px ;
+  margin-bottom: 120px;
+  border-radius: 12px;
+  background: var(--White, #FFF);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
+  color: var(--Black, #000);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; 
+}
+.contentOprPerfil > div{
+  margin: 0px auto;
+}
+.item-O-P{
+  display: flex;
+  flex-direction: column;
+}
+.item-O-P > input {
+  width: 798px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--Grey-3, #E1E1E1);
+  background: var(--White, #FFF);
+}
+
+.itemFila-O-P{
+  display: flex;
+  flex-direction: row;
+  width: 798px;
+}
+.itemFila-O-P > input{
+  width: 387px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--Grey-3, #E1E1E1);
+  background: var(--White, #FFF);
+} 
+
+.subItemFila > input{
+  display: flex;
+  flex-direction: column;
+  width: 387px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--Grey-3, #E1E1E1);
+  background: var(--White, #FFF);
+}
+
+.select-style {
+  width: 387px;
+  height: 44px;
+  font-size: 16px;
+  padding: 12px 8px 12px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--Grey-3, #E1E1E1);
+  background: var(--White, #FFF);
+}
+
+.subItemFilaSelect{
+  margin-left: 20px;
+}
+.editPassword{
+  color: var(--Principal, #A442F1);
+  font-variant-numeric: slashed-zero;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  margin-top: 5px;
+}
+.O-perfilBtn{
+  display: flex;
+width: 798px;
+height: 48px;
+padding: 12px 24px;
+justify-content: center;
+align-items: center;
+gap: 4px;
+align-self: stretch;
+border-radius: 8px;
+background: var(--Principal, #A442F1);
+color: var(--White, #FFF);
+text-align: center;
+font-variant-numeric: slashed-zero;
+flex: 1 0 0;
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px; /* 125% */
+border-style: none;
+}

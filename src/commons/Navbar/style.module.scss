@@ -1,0 +1,116 @@
+//  F  I  N  A  L     C  L  I  E  N  T     V  I  E  W
+.div-promotion-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+  background: var(--Grey-2, #f0f0f0);
+}
+.p-promotion-message {
+  color: var(--Principal, #a442f1);
+  text-align: center;
+  font-feature-settings: "case" on, "ss01" on;
+  font-size: 1.6vh;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+}
+.display-none {
+  display: none;
+}
+.navbar {
+  height: 7vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 7%;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0px 7px 20px -4px rgba(51, 51, 51, 0.1);
+}
+
+.navbar-button {
+  display: flex;
+  padding: 0px 32px;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.7s ease;
+}
+.navbar-button:hover {
+  transform: scale(1.08);
+}
+
+.h4-navbar {
+  color: var(--Principal, #a442f1);
+  color: var(--Principal, #a542f1cb);
+  text-align: center;
+  font-variant-numeric: slashed-zero;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 15px;
+}
+.div-navbar-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  a {
+    display: flex;
+    align-items: center;
+  }
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.h5-navbar-text {
+  margin: 0px 0px 0px 19px;
+  padding-right: 7px;
+
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  transition: all 0.5s ease;
+}
+.h5-navbar-text:hover {
+  font-size: 16px;
+  letter-spacing: 0.4px;
+}
+.h5-navbar-text:hover + a + svg > path {
+  transform: scale(1.1);
+}
+.h5-navbar-text:focus {
+  color: var(--Principal, #a442f1);
+}
+.h5-navbar-text:focus + a + svg > path {
+  fill: #a442f1;
+}
+svg > path {
+  transition: all 0.5s ease;
+}
+
+//  A  D  M  I  N  I  S  T  R  A  T  O  R     V  I  E  W
+.navbar-buttons-container {
+  display: flex;
+}
+.navbar-button-administrator {
+  width: 19vh;
+  margin: 0px 3%;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.7s ease;
+}
+.navbar-button-administrator:hover {
+  transform: scale(1.08);
+}
+.special-operator {
+  padding: 16px 11%;
+  .div-navbar-text {
+    gap: 20px;
+  }
+}
+.special-notLoggedIn {
+  padding: 16px 12%;
+}
